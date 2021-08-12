@@ -1,0 +1,54 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "Bring";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Update","AdminCategory",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="form-horizontal">
+        <h4>Kategori Güncelleme Sayfası</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CategoryId)
+
+        <div class="form-group">
+            @Html.Label("Kategori Adı")
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Kategori Açıklaması")
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.CategoryDescription,10,190, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Kategori Durumu")
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CategoryStatus)
+                    @Html.ValidationMessageFor(model => model.CategoryStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Güncelle" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+
+

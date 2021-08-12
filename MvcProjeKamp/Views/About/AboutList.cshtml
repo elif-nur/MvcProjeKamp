@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+<br />
+<table class="table table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Hakkımızda 1</th>
+            <th>Hakkımızda 2</th>
+            <th>Görsel 1</th>
+            <th>Görsel 2</th>
+            <th>Aktif Yap</th>
+            <th>Pasif Yap</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AboutId</td>
+                <td>@item.AboutDetails1</td>
+                <td>@item.AboutDetails2</td>
+                <td><img src="@item.AboutImage1" /></td>
+                <td><img src="@item.AboutImage2" /></td>
+                <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
+                <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>

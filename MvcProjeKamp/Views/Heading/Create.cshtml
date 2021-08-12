@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.Heading
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Create","Heading",FormMethod.Post))
+{
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <br />
+    <h4>Başlık Ekleme Sayfası</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("Başlık Adı")
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HeadingName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HeadingName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CategoryId,(List<SelectListItem>)ViewBag.category,new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Yazar")
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.WriterId,(List<SelectListItem>)ViewBag.Writer, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.WriterId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Başlık Oluştur" class="btn btn-warning" />
+        </div>
+    </div>
+</div>
+}
+
+
+

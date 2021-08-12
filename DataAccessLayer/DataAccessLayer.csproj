@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2221FD5-4A24-4F48-A89F-5A801712FBE5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
+    <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IEntityRepository.cs" />
+    <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IWriterDal.cs" />
+    <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAdminDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfImageFileDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfWriterDal.cs" />
+    <Compile Include="Concrete\EntityFramework\GenericRepository.cs" />
+    <Compile Include="Migrations\202107061504229_mig1.cs" />
+    <Compile Include="Migrations\202107061504229_mig1.designer.cs">
+      <DependentUpon>202107061504229_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107081848131_mig_writer.cs" />
+    <Compile Include="Migrations\202107081848131_mig_writer.designer.cs">
+      <DependentUpon>202107081848131_mig_writer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107090608187_migtitle.cs" />
+    <Compile Include="Migrations\202107090608187_migtitle.designer.cs">
+      <DependentUpon>202107090608187_migtitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107091226238_migsize.cs" />
+    <Compile Include="Migrations\202107091226238_migsize.designer.cs">
+      <DependentUpon>202107091226238_migsize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107091302324_mignewcol.cs" />
+    <Compile Include="Migrations\202107091302324_mignewcol.designer.cs">
+      <DependentUpon>202107091302324_mignewcol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107131139429_mig_addstatus.cs" />
+    <Compile Include="Migrations\202107131139429_mig_addstatus.designer.cs">
+      <DependentUpon>202107131139429_mig_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107141406473_addmessage.cs" />
+    <Compile Include="Migrations\202107141406473_addmessage.designer.cs">
+      <DependentUpon>202107141406473_addmessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107151120560_addcontactdate.cs" />
+    <Compile Include="Migrations\202107151120560_addcontactdate.designer.cs">
+      <DependentUpon>202107151120560_addcontactdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107151248157_addimagefile.cs" />
+    <Compile Include="Migrations\202107151248157_addimagefile.designer.cs">
+      <DependentUpon>202107151248157_addimagefile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107151324026_admintable.cs" />
+    <Compile Include="Migrations\202107151324026_admintable.designer.cs">
+      <DependentUpon>202107151324026_admintable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107161336232_addstatus.cs" />
+    <Compile Include="Migrations\202107161336232_addstatus.designer.cs">
+      <DependentUpon>202107161336232_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107161356023_statuss.cs" />
+    <Compile Include="Migrations\202107161356023_statuss.designer.cs">
+      <DependentUpon>202107161356023_statuss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107161400446_st.cs" />
+    <Compile Include="Migrations\202107161400446_st.designer.cs">
+      <DependentUpon>202107161400446_st.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{f24ab26b-1608-4213-8875-c90a761eec1f}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202107061504229_mig1.resx">
+      <DependentUpon>202107061504229_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107081848131_mig_writer.resx">
+      <DependentUpon>202107081848131_mig_writer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107090608187_migtitle.resx">
+      <DependentUpon>202107090608187_migtitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107091226238_migsize.resx">
+      <DependentUpon>202107091226238_migsize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107091302324_mignewcol.resx">
+      <DependentUpon>202107091302324_mignewcol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107131139429_mig_addstatus.resx">
+      <DependentUpon>202107131139429_mig_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107141406473_addmessage.resx">
+      <DependentUpon>202107141406473_addmessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107151120560_addcontactdate.resx">
+      <DependentUpon>202107151120560_addcontactdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107151248157_addimagefile.resx">
+      <DependentUpon>202107151248157_addimagefile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107151324026_admintable.resx">
+      <DependentUpon>202107151324026_admintable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107161336232_addstatus.resx">
+      <DependentUpon>202107161336232_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107161356023_statuss.resx">
+      <DependentUpon>202107161356023_statuss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107161400446_st.resx">
+      <DependentUpon>202107161400446_st.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

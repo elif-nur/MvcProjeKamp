@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "Heading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+
+   <h3>Başlıklar</h3>
+<br />
+   <table class="table table-bordered" id="myTable">
+       <thead>
+           <tr>
+               <th>Başlık İsimleri</th>
+           </tr>
+       </thead>
+       <tbody>
+          @foreach (var item1 in Model)
+          {
+              <tr>
+                  <td>@item1.HeadingName</td>
+              </tr>
+          }
+       </tbody>
+   </table>
